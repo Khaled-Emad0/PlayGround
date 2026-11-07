@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#071b3a" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <title>Blue Blur — A Sunny Side-Scrolling Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Blue Blur home"><span class="brand-mark">↗</span><span>BLUE<span class="brand-light">BLUR</span></span></a>
+      <div class="top-note"><span class="live-dot"></span> SUNSHINE COAST · ZONE 01</div>
+      <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound"><span id="soundIcon">♫</span><span class="sound-label">SOUND ON</span></button>
+    </header>
+
+    <section class="game-wrap" aria-label="Blue Blur game">
+      <canvas id="game" width="960" height="540" aria-label="Side scrolling platform game"></canvas>
+      <div class="hud" id="hud" aria-live="polite">
+        <div class="hud-left">
+          <div class="hud-chip"><span class="chip-icon ring-icon">◉</span><div><small>RINGS</small><strong id="ringCount">00</strong></div></div>
+          <div class="hud-chip score-chip"><span class="chip-icon">✦</span><div><small>SCORE</small><strong id="scoreCount">000000</strong></div></div>
+        </div>
+        <div class="hud-center"><span class="zone-tag">SUNSHINE COAST</span><span class="zone-act">ACT 1</span></div>
+        <div class="hud-right"><div class="life-badge"><span class="mini-hero">●</span><span>× <b id="lifeCount">3</b></span></div><button class="pause-btn" id="pauseBtn" aria-label="Pause game">Ⅱ</button></div>
+      </div>
+      <div class="progress-track"><div id="progressFill"></div></div>
+
+      <div class="overlay intro-overlay" id="introOverlay">
+        <div class="intro-copy">
+          <div class="eyebrow"><span></span> A HIGH-SPEED HOP</div>
+          <h1>BLUE<br><em>BLUR</em><span class="title-star">✦</span></h1>
+          <p>Dash through the coast.<br>Grab every ring you can.</p>
+          <button class="primary-btn" id="startBtn"><span>LET’S RUN</span><b>↗</b></button>
+          <div class="key-hint">PRESS <kbd>ENTER</kbd> TO START</div>
+        </div>
+        <div class="intro-sticker"><span class="sticker-star">✦</span><b>READY,<br>SET, ZOOM!</b><small>NO BRAKES. ALL BLUR.</small></div>
+        <div class="scroll-cue"><span>SCROLL? NOPE. JUST RUN.</span><b>↓</b></div>
+      </div>
+
+      <div class="overlay pause-overlay hidden" id="pauseOverlay">
+        <div class="modal-card"><span class="modal-kicker">TAKE A BREATHER</span><h2>PAUSED<span>Ⅱ</span></h2><p>Your rings are safe. The coast can wait.</p><button class="primary-btn" id="resumeBtn"><span>BACK TO IT</span><b>↗</b></button><div class="key-hint">PRESS <kbd>ESC</kbd> TO RESUME</div></div>
+      </div>
+      <div class="overlay end-overlay hidden" id="endOverlay">
+        <div class="modal-card"><span class="modal-kicker" id="endKicker">COAST CLEARED</span><h2 id="endTitle">NICE<br><em>RUN!</em><span class="end-star">✦</span></h2><p id="endMessage">That was one seriously speedy sprint.</p><div class="result-stats"><div><small>RINGS</small><b id="finalRings">00</b></div><div><small>SCORE</small><b id="finalScore">000000</b></div><div><small>TIME</small><b id="finalTime">0:00</b></div></div><button class="primary-btn" id="againBtn"><span>RUN IT BACK</span><b>↗</b></button><div class="key-hint">PRESS <kbd>ENTER</kbd> TO PLAY AGAIN</div></div>
+      </div>
+
+      <div class="mobile-controls" id="mobileControls">
+        <div class="move-pad"><button data-control="left" aria-label="Move left">‹</button><button data-control="right" aria-label="Move right">›</button></div>
+        <button class="jump-pad" data-control="jump" aria-label="Jump"><span>↑</span><small>JUMP</small></button>
+      </div>
+    </section>
+
+    <footer class="below-game">
+      <div class="controls-legend"><span class="legend-label">HOW TO PLAY</span><span><kbd>←</kbd><kbd>→</kbd> MOVE</span><span><kbd>SPACE</kbd> JUMP</span><span><kbd>ESC</kbd> PAUSE</span></div>
+      <div class="footer-meta"><span>BUILT FOR THE NEED FOR SPEED</span><span class="meta-dot">✦</span><span>BEST EXPERIENCED WITH SOUND</span></div>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
